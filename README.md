@@ -1,7 +1,8 @@
 # Angular Custom Webpack Environment
 
 This is a custom Angular environment setup, i.e.**without Angular CLI**
-**Currently supports latest Angular 5.0**
+
+**Currently supports latest Angular v5.0**
 
 ### The problem
 
