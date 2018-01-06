@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var helpers = require('./helpers');
+var path = require('path');
 
 module.exports = {
     entry: {
@@ -42,12 +43,11 @@ module.exports = {
     },
 
     plugins: [
-        // Workaround for angular/angular#11580
+        // Workaround for https://github.com/angular/angular/issues/11580
         new webpack.ContextReplacementPlugin(
             // The (\\|\/) piece accounts for path separators in *nix and Windows
-            /angular(\\|\/)core(\\|\/)@angular/,
-            helpers.root('./src'), // location of your src
-            {} // a map of your routes
+            /angular(\\|\/)core(\\|\/)(@angular|esm5)/,
+            path.resolve(__dirname, '../src')
         ),
 
         new webpack.optimize.CommonsChunkPlugin({
