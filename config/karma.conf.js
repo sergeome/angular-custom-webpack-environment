@@ -6,6 +6,14 @@ module.exports = function (config) {
 
         frameworks: ['jasmine'],
 
+        plugins: [
+            require('karma-jasmine'),
+            require('karma-phantomjs-launcher'),
+            require('karma-webpack'),
+            require('karma-sourcemap-loader'),
+            require('karma-jasmine-html-reporter')
+        ],
+
         files: [
             {pattern: './config/karma-test-shim.js', watched: false}
         ],
